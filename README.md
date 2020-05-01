@@ -16,7 +16,19 @@ You can now download MIP benchmark data and instances in Python scripts.
 from MIPLIBing import MIPLIBing
 from MIPLIBing import Libraries
 
-mip = MIPLIBing(library = Libraries.QPLIB, verbose = True, update_csv = True, file_extension="lp")
+mip = MIPLIBing(library = Libraries.QPLIB, verbose = True, file_extension="lp")
+instances = mip.get_instances(min_var=100, max_var=100)
+print()
+for instance in instances:
+    print(instance)
+```
+
+Here is another example using MIPLIB, where the file extension is not required.
+```python
+from MIPLIBing import MIPLIBing
+from MIPLIBing import Libraries
+
+mip = MIPLIBing(library = Libraries.MIPLIB2017_Benchmark, update_csv = True)
 instances = mip.get_instances(min_var=100, max_var=100)
 print()
 for instance in instances:
