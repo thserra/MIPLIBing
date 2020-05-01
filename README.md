@@ -28,7 +28,7 @@ Here is another example using MIPLIB, where the file extension is not required.
 from MIPLIBing import MIPLIBing
 from MIPLIBing import Libraries
 
-mip = MIPLIBing(library = Libraries.MIPLIB2017_Benchmark, update_csv = True)
+mip = MIPLIBing(library = Libraries.MIPLIB2017_Benchmark)
 instances = mip.get_instances(min_var=100, max_var=100)
 print()
 for instance in instances:
