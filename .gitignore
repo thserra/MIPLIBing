@@ -1,2 +1,6 @@
 .ipynb_checkpoints
 __pycache__
+build
+dist
+MIPLIBing_cache
+MIPLIBing.egg-info

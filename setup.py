@@ -24,7 +24,7 @@ setup(
     package_dir={'': 'src'},
     packages=find_packages(where='src'),
     python_requires='>=3.4.*',
-    install_requires=['numpy', 'pandas', 'requests'],
+    install_requires=['lxml', 'numpy', 'pandas', 'requests'],
     project_urls={
         'Bug Reports': 'https://github.com/thserra/MIPLIBing/issues',
         'Source': 'https://github.com/thserra/MIPLIBing',
