@@ -94,7 +94,7 @@ class Libraries(Enum):
 class Status(Enum):
     easy = 1   # MIPLIB2017 only
     hard = 2   # MIPLIB2017 only
-    open = 3   # MIPLIB2017; or MINLP if 3 solvers found optimal or proved infeasibility
+    open = 3   # MIPLIB2017; or MINLP if 3 solvers did not find optimal or proved infeasibility
     closed = 4 # MINLP otherwise
 
 
@@ -107,8 +107,12 @@ class MIPLIBing:
         assert type(library)==Libraries # Library should belong to the enumuration
 
         assert not ( library in [Libraries.MIPLIB2017_Benchmark, Libraries.MIPLIB2017_Collection] and file_extension != None ) # MIPLIB2017 does not require file extension
-        assert not ( library == Libraries.MINLPLIB and file_extension == None ) # MINLPLIB requires file extension
-        assert not ( library == Libraries.QPLIB and file_extension == None ) # QPLIB requires file extension
+
+        if library == Libraries.MINLPLIB and file_extension == None: # Use default file extension for MINLPLIB
+            file_extension = "gms"
+
+        if library == Libraries.QPLIB and file_extension == None: # Use default file extension for QPLIB
+            file_extension = "qplib"
 
         self.local_directory = local_directory+"/"+library.name+"/"
 
