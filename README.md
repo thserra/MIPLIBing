@@ -18,10 +18,39 @@ from MIPLIBing import Libraries
 from MIPLIBing import Status
 
 mip = MIPLIBing(library = Libraries.MIPLIB2017_Collection, verbose = True)
-instances = mip.get_instances(with_status = Status.open, max_var=1000)
+instances = mip.get_instances(with_status = Status.open, max_var=200)
 print()
 for instance in instances:
     print(instance)
+```
+
+The script above may produce the following output:
+```
+Instance pb-market-split8-70-4: Already downloaded
+Instance v150d30-2hopcds: Downloading from http://miplib.zib.de/WebData/instances/v150d30-2hopcds.mps.gz
+
+Instance:              	pb-market-split8-70-4
+Type:                  	MILP
+Local path:            	MIPLIBing_cache/MIPLIB2017_Collection/pb-market-split8-70-4.mps
+Feasible:              	Unknown
+Primal Bound:          	None
+Dual Bound:            	None
+Status:                	open
+Variables:             	71	(71 binary)	 (0 integer)	 (0 continuous)
+Constraints:           	17
+Non-zeroes:            	1113
+
+
+Instance:              	v150d30-2hopcds
+Type:                  	MILP
+Local path:            	MIPLIBing_cache/MIPLIB2017_Collection/v150d30-2hopcds.mps
+Feasible:              	Yes
+Primal Bound:          	41.0
+Dual Bound:            	None
+Status:                	open
+Variables:             	150	(150 binary)	 (0 integer)	 (0 continuous)
+Constraints:           	7822
+Non-zeroes:            	103991
 ```
 
 The `library` parameter can be any of:
