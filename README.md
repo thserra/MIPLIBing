@@ -31,7 +31,7 @@ The `library` parameter can be any of:
 * `Libraries.MINLPLIB`
 * `Libraries.QPLIB`
 
-The `with_status` (or `without_status`) parameter can be any of:
+According to the library chosen (see observations below), the `with_status` (or `without_status`) parameter can be any of:
 
 * `Status.easy`
 * `Status.hard`
