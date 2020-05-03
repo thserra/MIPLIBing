@@ -48,7 +48,7 @@ library | Problem library to be queried | Libraries.MIPLIB2017_Benchmark | Value
 update_csv | If CSV file summarizing problem data should be updated, in case one already exists | False  | 
 verbose | Prints the steps involved when getting instances | False  | If the chosen file_extension is not available for an instance, you will see the warnings with verbose.
 local_directory | Define a local (or global) directory for caching data about the problem library and the instances | "MIPLIBing_cache" | 
-file_extension |  | None | Cannot be used if library is Libraries.MIPLIB2017_Benchmark or Libraries.MIPLIB2017_Collection (the file extension is "mps" in that case). The default value is set to "gms" if library is Libraries.MINLPLIB and "qplib" is library is Libraries.QPLIB. When the file format is not available for some instance, a warning if shown if verbose is True and the local path of the instance has value None.
+file_extension |  | None | Cannot be used if library is Libraries.MIPLIB2017_Benchmark or Libraries.MIPLIB2017_Collection (the file extension is "mps" in that case). The default value is set to "gms" if library is Libraries.MINLPLIB and "qplib" is library is Libraries.QPLIB. When the file format is not available for some instance, a warning is shown if verbose is True and the local path of the instance has value None.
 
 For the `get_instances` method, every argument has default value None and is only applicable if changed to another value. Here is the complete list of arguments:
 
