@@ -52,37 +52,38 @@ file_extension |  | None | Cannot be used if library is Libraries.MIPLIB2017_Ben
 
 For the `get_instances` method, every argument has default value None and is only applicable if changed to another value. Here is the complete list of arguments:
 
-Argument | Description | Observations
---- | --- | ---
-instance_name | Exact name of instance | 
-min_var | Minimum number of decision variables | 
-max_var | Maximum number of decision variables | 
-min_bin | Minimum number of binary decision variables | 
-max_bin | Maximum number of binary decision variables | 
-min_int | Minimum number of integer and non-binary decision variables | 
-max_int | Maximum number of integer and non-binary decision variables | 
-min_cont | Minimum number of continuous variables | 
-max_cont | Maximum number of continuous variables | 
-min_cons | Minimum number of constraints | 
-max_cons | Maximum number of constraints | 
-min_nz | Minimum number of nonzeroes | 
-max_nz | Maximum number of nonzeroes | 
-with_status | Only a specific status is allowed | Value should be in Status. If library is Libraries.MIPLIB2017_Benchmark or Libraries.MIPLIB2017_Collection, with_status can be Status.easy, Status.hard, or Status.open. If library is Libraries.MINLPLIB, with_status can be Status.closed (if 3 solvers found optimal solution or proven infeasibility) or Status.open (othewise). Not supported if library is Libraries.QPLIB.
-without_status | Only a specific status is forbidden | Value should be in Status. If library is Libraries.MIPLIB2017_Benchmark or Libraries.MIPLIB2017_Collection, without_status can be Status.easy, Status.hard, or Status.open. If library is Libraries.MINLPLIB, without_status can be Status.closed (if 3 solvers found optimal solution or proven infeasibility) or Status.open (othewise). Not supported if library is Libraries.QPLIB.
-min_sos | Minimum number of SOS constraints | Only supported if library is Libraries.MINLPLIB.
-max_sos | Maximum number of SOS constraints | Only supported if library is Libraries.MINLPLIB.
-min_semi | Minimum number of semicontinuity / semiintegrality constraints | Only supported if library is Libraries.MINLPLIB.
-max_semi | Maximum number of semicontinuity / semiintegrality constraints | Only supported if library is Libraries.MINLPLIB.
-problem_type | Only one type of problem is allowed | Only supported if library is Libraries.MINLPLIB. The problem type should be given as a string such as "MBNLP", "QP", "MBQP", "NLP", etc.
-min_obj_density | Minimum objective density (%) in the quadratic part of the objective matrix  | Only supported if library is Libraries.QPLIB.
-max_obj_density | Maximum objective density (%) in the quadratic part of the objective matrix  | Only supported if library is Libraries.QPLIB.
-min_problematic_ev_density | Minimum density (%) of problematic eigenvalues in the quadratic part of the objective matrix  | Only supported if library is Libraries.QPLIB.
-max_problematic_ev_density | Maximum density (%) of problematic eigenvalues in the quadratic part of the objective matrix  | Only supported if library is Libraries.QPLIB.
-min_quadratic_cons | Minimum number of quadratic constraints | Only supported if library is Libraries.QPLIB.
-max_quadratic_cons | Maximum number of quadratic constraints | Only supported if library is Libraries.QPLIB.
-objective_type | Only one type of objective is allowed | Only supported if library is Libraries.QPLIB. The types should be given as a string among "L", "D", "C", and "Q" as described in the documentation for [QPLIB Problem Type](http://qplib.zib.de/doc.html#probtype).
-variables_type | Only one type of variables is allowed | Only supported if library is Libraries.QPLIB. The types should be given as a string among "C", "B", "M", "I", and "G" as described in the documentation for [QPLIB Problem Type](http://qplib.zib.de/doc.html#probtype).
-constraints_type | Only one type of constraints is allowed | Only supported if library is Libraries.QPLIB. The types should be given as a string among "N", "B", "L", "D", "C", and "Q" as described in the documentation for [QPLIB Problem Type](http://qplib.zib.de/doc.html#probtype).
+Argument | Description | Libraries supported | Observations
+--- | --- | --- | ---
+instance_name | Exact name of instance | All | 
+min_var | Minimum number of decision variables | All | 
+max_var | Maximum number of decision variables | All | 
+min_bin | Minimum number of binary decision variables | All | 
+max_bin | Maximum number of binary decision variables | All | 
+min_int | Minimum number of integer and non-binary decision variables | All | 
+max_int | Maximum number of integer and non-binary decision variables | All | 
+min_cont | Minimum number of continuous variables | All | 
+max_cont | Maximum number of continuous variables | All | 
+min_cons | Minimum number of constraints | All | 
+max_cons | Maximum number of constraints | All | 
+min_nz | Minimum number of nonzeroes | All | 
+max_nz | Maximum number of nonzeroes | All | 
+with_status | Only a specific status is allowed | MIPLIB2017_Benchmark, MIPLIB2017_Collection, MINLPLIB | Value should be in Status. If library is Libraries.MIPLIB2017_Benchmark or Libraries.MIPLIB2017_Collection, with_status can be Status.easy, Status.hard, or Status.open. If library is Libraries.MINLPLIB, with_status can be Status.closed (if 3 solvers found optimal solution or proven infeasibility) or Status.open (othewise).
+without_status | Only a specific status is forbidden | MIPLIB2017_Benchmark, MIPLIB2017_Collection, MINLPLIB | Value should be in Status. If library is Libraries.MIPLIB2017_Benchmark or Libraries.MIPLIB2017_Collection, without_status can be Status.easy, Status.hard, or Status.open. If library is Libraries.MINLPLIB, without_status can be Status.closed (if 3 solvers found optimal solution or proven infeasibility) or Status.open (othewise).
+min_sos | Minimum number of SOS constraints | MINLPLIB | 
+max_sos | Maximum number of SOS constraints | MINLPLIB | 
+min_semi | Minimum number of semicontinuity / semiintegrality constraints | MINLPLIB | 
+max_semi | Maximum number of semicontinuity / semiintegrality constraints | MINLPLIB | 
+problem_type | Only one type of problem is allowed | MINLPLIB | The problem type should be given as a string such as "MBNLP", "QP", "MBQP", "NLP", etc.
+min_obj_density | Minimum objective density (%) in the quadratic part of the objective matrix  | QPLIB | 
+max_obj_density | Maximum objective density (%) in the quadratic part of the objective matrix  | QPLIB | 
+min_problematic_ev_density | Minimum density (%) of problematic eigenvalues in the quadratic part of the objective matrix  | QPLIB | 
+max_problematic_ev_density | Maximum density (%) of problematic eigenvalues in the quadratic part of the objective matrix  | QPLIB | 
+min_quadratic_cons | Minimum number of quadratic constraints | QPLIB | 
+max_quadratic_cons | Maximum number of quadratic constraints | QPLIB | 
+objective_type | Only one type of objective is allowed | QPLIB | The types should be given as a string among "L", "D", "C", and "Q" as described in the documentation for [QPLIB Problem Type](http://qplib.zib.de/doc.html#probtype).
+variables_type | Only one type of variables is allowed | QPLIB | The types should be given as a string among "C", "B", "M", "I", and "G" as described in the documentation for [QPLIB Problem Type](http://qplib.zib.de/doc.html#probtype).
+constraints_type | Only one type of constraints is allowed | QPLIB | The types should be given as a string among "N", "B", "L", "D", "C", and "Q" as described in the documentation for [QPLIB Problem Type](http://qplib.zib.de/doc.html#probtype).
+
 
 ## Citation
 
