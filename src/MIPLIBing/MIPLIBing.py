@@ -278,12 +278,12 @@ class MIPLIBing:
         if with_status is not None:
             assert self.library != Libraries.QPLIB # Cannot filter QPLIB by status
             assert not ( with_status.name == "closed" and self.library in [Libraries.MIPLIB2017_Benchmark, Libraries.MIPLIB2017_Collection])  # Status closed only applies to MINLPLIB
-            assert not ( with_status.name in ["easy","hard"] and self.library == Libraries.MINLP ) # Status easy and hard only applies to MIPLIB2017
+            assert not ( with_status.name in ["easy","hard"] and self.library == Libraries.MINLPLIB ) # Status easy and hard only applies to MIPLIB2017
             df = df[df['Status'] == with_status.name]
         if without_status is not None:
             assert self.library != Libraries.QPLIB # Cannot filter QPLIB by status
             assert not ( without_status.name == "closed" and self.library in [Libraries.MIPLIB2017_Benchmark, Libraries.MIPLIB2017_Collection])  # Status closed only applies to MINLPLIB
-            assert not ( without_status.name in ["easy","hard"] and self.library == Libraries.MINLP ) # Status easy and hard only applies to MIPLIB2017
+            assert not ( without_status.name in ["easy","hard"] and self.library == Libraries.MINLPLIB ) # Status easy and hard only applies to MIPLIB2017
             df = df[df['Status'] != without_status.name]
 
         if min_sos is not None:
