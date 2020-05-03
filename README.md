@@ -1,6 +1,6 @@
 # MIPLIBing
 
-MIPLIBing is a library for downloading MIP benchmark instances.
+MIPLIBing is a library for downloading MIP benchmark instances on demand.
 
 ## Usage
 
@@ -37,6 +37,8 @@ The `with_status` (or `without_status`) parameter can be any of:
 * `Status.hard`
 * `Status.open`
 * `Status.closed`
+
+When `instance` is printed, all relevant information is displayed for the type of library used. The location of the downloaded instance in your machine is given by `instance.path`.
 
 Here is the complete list of arguments for the `MIPLIBing` constructor:
 
