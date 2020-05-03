@@ -84,6 +84,17 @@ objective_type | Only one type of objective is allowed | Only supported if libra
 variables_type | Only one type of variables is allowed | Only supported if library is Libraries.QPLIB. The types should be given as a string among "C", "B", "M", "I", and "G" as described in the documentation for [QPLIB Problem Type](http://qplib.zib.de/doc.html#probtype).
 constraints_type | Only one type of constraints is allowed | Only supported if library is Libraries.QPLIB. The types should be given as a string among "N", "B", "L", "D", "C", and "Q" as described in the documentation for [QPLIB Problem Type](http://qplib.zib.de/doc.html#probtype).
 
+## Citation
+
+A manuscript the describes and contextualizes MIPLIBing is currently under review:
+
+```
+@unpublished{MIPLIBing,
+    author = {Thiago Serra and Ryan J. O'Neil},
+    title = {Seamless benchmarking of mathematical optimization problems and metadata extensions},
+    year = {2020}
+}
+```
 
 ## License
 
