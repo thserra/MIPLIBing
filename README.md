@@ -86,7 +86,7 @@ constraints_type | Only one type of constraints is allowed | Only supported if l
 
 ## Citation
 
-A manuscript the describes and contextualizes MIPLIBing is currently under review:
+A manuscript that describes and contextualizes MIPLIBing is currently under review:
 
 ```
 @unpublished{MIPLIBing,
