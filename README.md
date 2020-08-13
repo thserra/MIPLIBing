@@ -121,7 +121,7 @@ A manuscript that describes and contextualizes MIPLIBing is currently under revi
 ```
 @unpublished{MIPLIBing,
     author = {Thiago Serra and Ryan J. O'Neil},
-    title = {Seamless benchmarking of mathematical optimization problems and metadata extensions},
+    title = {MIPLIBing: Seamless benchmarking of mathematical optimization problems and metadata extensions},
     year = {2020}
 }
 ```
