@@ -379,7 +379,7 @@ class MIPLIBing:
                 sos = None
                 semi = None
 
-            if self.library in self.miplib2017libraries:
+            if self.library in [Libraries.MIPLIB2017_Benchmark, Libraries.MIPLIB2017_Collection]:
 
                 if primal == "Infeasible" or primal == "NA":
                     feasible = False
