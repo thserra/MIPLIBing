@@ -236,7 +236,7 @@ class MIPLIBing:
             df.to_csv(self.instances_cvs_path, quoting=csv.QUOTE_NONNUMERIC)
 
 
-    def get_instances(self, instance_name = None, min_var = None, max_var = None, min_bin = None, max_bin = None, min_int = None, max_int = None, min_cont = None, max_cont = None, min_cons = None, max_cons = None, min_nz = None, max_nz = None, with_status = None, without_status = None, min_sos = None, max_sos = None, min_semi = None, max_semi = None, problem_type = None, min_obj_density = None, max_obj_density = None, min_problematic_ev_density = None, max_problematic_ev_density = None, min_quadratic_cons = None, max_quadratic_cons = None, objective_type = None, variables_type = None, constraints_type = None):
+    def get_instances(self, instance_name = None, min_var = None, max_var = None, min_bin = None, max_bin = None, min_int = None, max_int = None, min_cont = None, max_cont = None, min_cons = None, max_cons = None, min_nz = None, max_nz = None, with_status = None, without_status = None, min_sos = None, max_sos = None, min_semi = None, max_semi = None, problem_type = None, min_obj_density = None, max_obj_density = None, min_problematic_ev_density = None, max_problematic_ev_density = None, min_quadratic_cons = None, max_quadratic_cons = None, objective_type = None, variables_type = None, constraints_type = None, tags = None):
         # Status can only be "easy", "hard", or "open" (MIPLIB) and "open" or "closed" (MINLPLIB)
 
         data = pd.read_csv(self.instances_cvs_path, dtype={'Instance': str})
@@ -340,6 +340,15 @@ class MIPLIBing:
             assert self.library == Libraries.QPLIB # Can only filter by constraints type in QPLIB
             df = df[df['Constraints type'] == constraints_type]
 
+        if tags is not None:
+           assert self.library in [Libraries.MIPLIB2017_Benchmark, Libraries.MIPLIB2017_Collection] # Can only filter by constraints type in MIPLIB2017
+           assert isinstance(tags, list) # the tags must be a list, to enable filtering on multiple tags
+           for t in tags:
+               if t[0] == '~':
+                   df = df[~df['Tags'].str.contains(t[1:])]
+               else:
+                   df = df[df['Tags'].str.contains(t)]
+
         instance_list = []
 
         for index, row in df.iterrows():
@@ -372,8 +381,11 @@ class MIPLIBing:
 
             if self.library in [Libraries.MIPLIB2017_Benchmark, Libraries.MIPLIB2017_Collection]:
 
-                if primal == "Infeasible":
+                if primal == "Infeasible" or primal == "NA":
                     feasible = False
+                    primal = None
+                elif primal == "Unbounded":
+                    feasible = True
                     primal = None
                 elif type(primal)==str: #Any numerical objective comes as a string
                     feasible = True
